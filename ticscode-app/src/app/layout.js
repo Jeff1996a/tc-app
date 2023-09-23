@@ -11,7 +11,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head>
+        <link rel='icon' href='/img/icono-ticscode.png' type='image/png'/>
+      </head>
+      <body className={inter.className}>
+        {children}</body>
     </html>
   )
 }

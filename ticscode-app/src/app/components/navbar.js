@@ -29,7 +29,9 @@ import {
     Square3Stack3DIcon,
     ServerStackIcon,
     WindowIcon,
-    CloudIcon
+    CloudIcon,
+    GlobeAmericasIcon,
+    UserGroupIcon
   } from "@heroicons/react/24/solid";
  
 // profile menu component
@@ -195,7 +197,7 @@ function ConsultoriaList() {
             variant="gradient"
             className="col-span-3 grid h-full w-full place-items-center rounded-md"
           >
-            <WindowIcon strokeWidth={1} className="h-28 w-28" />
+            <UserGroupIcon strokeWidth={1} className="h-28 w-28" />
           </Card>
           <ul className="col-span-4 flex w-full flex-col gap-1">
             {renderItems}
@@ -251,12 +253,12 @@ function ServiciosList() {
           </MenuHandler>
           <MenuList className="hidden w-[36rem] grid-cols-7 gap-3 overflow-visible lg:grid">
             <Card
-              color="red"
+              color="green"
               shadow={false}
               variant="gradient"
               className="col-span-3 grid h-full w-full place-items-center rounded-md"
             >
-              <ServerStackIcon strokeWidth={1} className="h-28 w-28" />
+              <GlobeAmericasIcon strokeWidth={1} className="h-28 w-28" />
             </Card>
             <ul className="col-span-4 flex w-full flex-col gap-1">
               {renderItems}

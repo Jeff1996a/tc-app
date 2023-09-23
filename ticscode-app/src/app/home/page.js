@@ -30,7 +30,7 @@ export function Home(){
                 <div className="flex flex-wrap items-center">
                     <div className="ml-auto mr-auto w-full px-4 text-center lg:w-8/12">
                     <img
-                        className="h-70 w-81 mt-6 mb-0 mx-auto object-cover object-center opacity-90"
+                        className="h-70 w-81 mt-6 mb-0 mx-auto object-cover object-center opacity-70"
                         src="/img/logo.png"
                         alt="nature image"></img>
                     <Typography variant="lead" color="white" className="opacity-70 mt-0">
@@ -55,10 +55,10 @@ export function Home(){
                         ¡Bienvenidos a TicsCode!
                     </Typography>
                     <Typography className="mb-8 font-normal text-blue-gray-500">
-                        ¡Este es el lugar indicado para dar el siguiente paso hacia las nuevas tecnologías y formar parte de la nueva revolución digital!
+                        Este es el lugar indicado para dar el siguiente paso hacia las nuevas tecnologías y formar parte de la nueva revolución digital.
                         <br />
                         <br />
-                        Nosotros te ayudaremos a desarrollar todas las ideas para su negocio, emprendimiento u organización en el ámbito de las tecnologías de la información.
+                        Nosotros le ayudaremos a desarrollar todas las ideas para su negocio, emprendimiento u organización haciendo uso de las nuevas tecnologías de la información.
                     </Typography>
                     </div>
                     <div className="mx-auto mt-24 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
@@ -79,7 +79,7 @@ export function Home(){
                             ¿Quienes somos?
                         </Typography>
                         <Typography className="font-normal text-blue-gray-500">
-                            TicsCode Ecuador es una empresa que nació en el año 2022 y se especializa en brindar soluciones en el área de las Tecnologías de la información a diferentes empresas u organizaciones dentro y fuera del país .
+                            TicsCode Ecuador es una empresa que se especializa en brindar soluciones en el área de las Tecnologías de la información a diferentes empresas u organizaciones dentro y fuera del país .
                         </Typography>
                         
                         </CardBody>
@@ -87,7 +87,7 @@ export function Home(){
                             variant="outlined"
                             color="green" 
                             size="sm"
-                            className="hidden lg:inline-block"
+                            className="hidden sm:inline-block mb-10"
                             >
                             <span>Contáctanos</span>
                             </Button>
@@ -117,8 +117,8 @@ export function Home(){
             </section>
             <section className="px-4 bg-gray-50 pt-20 pb-48">
                 <div className="container mx-auto">
-                    <PageTitle heading="Planes Web Hosting">
-                        Contamos con alojamiento público para que tus páginas web estén de prioridad en los buscadores mas populares.
+                    <PageTitle heading="Nuestros proveedores">
+                        Trabajamos con diferentes marcas para brindar la mejor solución a todos nuestros clientes.
                     </PageTitle>
                     <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
                         {teamData.map(({ img, name, position, socials }) => (
@@ -144,10 +144,8 @@ export function Home(){
             
             <section className="relative px-4 bg-gray-50">
                 <div className="container mx-auto">
-                <PageTitle heading="Alianzas">
-                    Put the potentially record low maximum sea ice extent tihs year down
-                    to low ice. According to the National Oceanic and Atmospheric
-                    Administration, Ted, Scambos.
+                <PageTitle heading="Paquetes Hosting Web">
+                    Nuestros planes de alojamiento cuentan con direccionamiento para que tu sitio web se encuentre en todos los buscadores más populares.
                 </PageTitle>
                 <div className="mx-auto mt-20 mb-48 grid max-w-5xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
                     {contactData.map(({ title, icon, description }) => (
@@ -171,7 +169,7 @@ export function Home(){
                     </Card>
                     ))}
                 </div>
-                <PageTitle heading="Want to work with us?">
+                <PageTitle heading="¡Escríbenos!">
                     Complete this form and we will get back to you in 24 hours.
                 </PageTitle>
                 <form className="mx-auto mt-12 max-w-3xl text-center">

@@ -41,7 +41,7 @@ import {
     },
     {
       color: "yellow",
-      title: "Tarjetas de presentación digitales",
+      title: "Portafolios digitales",
       icon: CreditCardIcon,
       description:
         "Diseñamos  tarjetas de presentación digitales disponible en internet para que así pueda llegar a más personas compartiendo su enlace de presentación por todas sus redes sociales con un solo clic."
