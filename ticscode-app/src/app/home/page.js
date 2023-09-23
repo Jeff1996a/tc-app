@@ -79,7 +79,7 @@ export function Home(){
                             ¿Quienes somos?
                         </Typography>
                         <Typography className="font-normal text-blue-gray-500">
-                            TicsCode Ecuador es una empresa que se especializa en brindar soluciones en el área de las Tecnologías de la información a diferentes empresas u organizaciones dentro y fuera del país .
+                            TicsCode Ecuador es una empresa que se especializa en brindar soluciones en el área de las Tecnologías de la información a diferentes empresas y organizaciones.
                         </Typography>
                         
                         </CardBody>
@@ -144,8 +144,8 @@ export function Home(){
             
             <section className="relative px-4 bg-gray-50">
                 <div className="container mx-auto">
-                <PageTitle heading="Paquetes Hosting Web">
-                    Nuestros planes de alojamiento cuentan con direccionamiento para que tu sitio web se encuentre en todos los buscadores más populares.
+                <PageTitle heading="Paquetes TicsCode">
+                    Nuestros planes de diseño web y alojamiento cuentan con direccionamiento para que tu sitio web se encuentre en todos los buscadores más populares.
                 </PageTitle>
                 <div className="mx-auto mt-20 mb-48 grid max-w-5xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
                     {contactData.map(({ title, icon, description }) => (
@@ -170,16 +170,16 @@ export function Home(){
                     ))}
                 </div>
                 <PageTitle heading="¡Escríbenos!">
-                    Complete this form and we will get back to you in 24 hours.
+                No dudes en comunicarte por todos nuestros canales y te responderemos inmediatamente para brindarte más información acerca de nuestros servicios.
                 </PageTitle>
                 <form className="mx-auto mt-12 max-w-3xl text-center">
                     <div className="mb-8 flex gap-8">
-                    <Input variant="standard" size="lg" label="Full Name" />
-                    <Input variant="standard" size="lg" label="Email Address" />
+                    <Input variant="standard" size="sm" label="Nombres completos *" />
+                    <Input variant="standard" size="sm" label="Correo electrónico *" />
                     </div>
-                    <Textarea variant="standard" size="lg" label="Message" rows={8} />
+                    <Textarea variant="standard" size="lg" label="Mensaje *" rows={8} />
                     <Button variant="gradient" size="lg" className="mt-8 mb-10">
-                    Send Message
+                    Enviar
                     </Button>
                 </form>
                 </div>

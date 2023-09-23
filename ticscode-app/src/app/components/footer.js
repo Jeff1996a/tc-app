@@ -22,7 +22,7 @@ export function Footer({ title, description, socials, menus, copyright }) {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <IconButton color="white" className="rounded-full">
+                  <IconButton className="rounded-full">
                     <Typography color={color}>
                       <i className={`fa-brands fa-${name}`} />
                     </Typography>
@@ -77,12 +77,12 @@ export function Footer({ title, description, socials, menus, copyright }) {
   );
 }
 Footer.defaultProps = {
-  title: "Material Tailwind",
+  title: "TicsCode Ecuador",
   description:
-    "Easy to use React components for Tailwind CSS and Material Design.",
+    "Crea, innova y sé parte de la nueva revolución digital.",
   socials: [
     {
-      color: "blue",
+      color: "white",
       name: "facebook",
       path: "https://www.facebook.com/CreativeTim",
     },
@@ -114,7 +114,7 @@ Footer.defaultProps = {
   ],
   menus: [
     {
-      name: "useful links",
+      name: "mapa del sitio",
       items: [
         { name: "About Us", path: "https://www.creative-tim.com/presentation" },
         { name: "Blog", path: "https://www.creative-tim.com/blog" },
@@ -129,7 +129,7 @@ Footer.defaultProps = {
       ],
     },
     {
-      name: "other resources",
+      name: "contactos",
       items: [
         {
           name: "MIT License",
@@ -152,13 +152,13 @@ Footer.defaultProps = {
   ],
   copyright: (
     <>
-      Copyright © {year} Material Tailwind by{" "}
+      Copyright © {year} TicsCode Ecuador by{" "}
       <a
         href="https://www.creative-tim.com?ref=mtk"
         target="_blank"
         className="text-blue-gray-500 transition-colors hover:text-blue-500"
       >
-        Creative Tim
+        EmperatorJA
       </a>
       .
     </>

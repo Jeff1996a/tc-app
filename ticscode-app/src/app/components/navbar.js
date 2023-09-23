@@ -11,8 +11,10 @@ import {
   Avatar,
   Card,
   IconButton,
+  Collapse,
 } from "@material-tailwind/react";
 import {
+  Square3Stack3DIcon,
   UserCircleIcon,
   ChevronDownIcon,
   Cog6ToothIcon,
@@ -21,15 +23,16 @@ import {
   PowerIcon,
   RocketLaunchIcon,
   Bars2Icon,
+  UserIcon,
+  CloudIcon,
+  BriefcaseIcon,
+  BuildingStorefrontIcon,
 } from "@heroicons/react/24/outline";
 
 import {
-    BriefcaseIcon,
-    UsersIcon,
-    Square3Stack3DIcon,
+    UsersIcon, 
     ServerStackIcon,
     WindowIcon,
-    CloudIcon,
     GlobeAmericasIcon,
     UserGroupIcon
   } from "@heroicons/react/24/solid";
@@ -180,7 +183,7 @@ function ConsultoriaList() {
           <Typography as="a" href="#" variant="solid" className="font-normal">
             <MenuItem className="hidden items-center gap-2 text-blue-gray-500 lg:flex lg:rounded-full">
             <Square3Stack3DIcon className="h-6 w-6"/>
- Consultoría IT{" "}
+ Consultoría {" "}
               <ChevronDownIcon
                 strokeWidth={2}
                 className={`h-3 w-3 transition-transform ${
@@ -280,15 +283,21 @@ function ServiciosList() {
  
 // nav list component
 const navListItems = [
+  
   {
     label: "Soluciones",
     icon: BriefcaseIcon,
   },
-
+  {
+    label: "Blog",
+    icon: RocketLaunchIcon,
+  },
   {
     label: "Contactos",
-    icon: UsersIcon,
+    icon: UserIcon,
   },
+
+  
 ];
  
 function NavList() {
@@ -328,7 +337,7 @@ export function ComplexNavbar() {
   }, []);
  
   return (
-    <Navbar className="p-2">
+    <Navbar className="p-3">
       <div className="container mx-auto flex items-center justify-between text-blue-gray-500">
         <Typography
             as="a"
@@ -359,12 +368,12 @@ export function ComplexNavbar() {
               <span>Portal</span>
             </Button>
       </div>
-      <MobileNav open={isNavOpen} className="overflow-scroll">
+      <Collapse open={isNavOpen} className="overflow-scroll">
         <NavList />
-        <Button variant="outline" color="green" size="sm" fullWidth className="mb-2">
+        <Button variant="gradient" color="blue" size="sm" fullWidth className="mb-2">
             <span>Portal</span>
           </Button>
-      </MobileNav>
+      </Collapse>
     </Navbar>
   );
 }
