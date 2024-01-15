@@ -1,34 +1,34 @@
 import { Typography, IconButton } from "@material-tailwind/react";
-
+import {FaFacebookF, FaInstagram, FaGithub } from 'react-icons/fa';
+import Link from "next/link";
 const year = new Date().getFullYear();
 
 export function Footer({ title, description, socials, menus, copyright }) {
   return (
-    <footer className="relative px-4 pt-8 pb-6">
+    <footer className="relative px-4 pt-8 pb-6 bg-black">
       <div className="container mx-auto">
         <div className="flex flex-wrap pt-6 text-center lg:text-left">
           <div className="w-full px-4 lg:w-6/12">
-            <Typography variant="h4" className="mb-4" color="blue-gray">
+            <Typography variant="h4" className="mb-4" color="green" >
               {title}
             </Typography>
             <Typography className="font-normal text-blue-gray-500">
               {description}
             </Typography>
-            <div className="mx-auto mt-6 mb-8 flex justify-center gap-2 md:mb-0 lg:justify-start">
-              {socials.map(({ color, name, path }) => (
-                <a
-                  key={name}
-                  href={path}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <IconButton className="rounded-full">
-                    <Typography color={color}>
-                      <i className={`fa-brands fa-${name}`} />
-                    </Typography>
+            {socials.map(({ icon, name, path }) => (
+                
+                  <IconButton
+                    variant="gradient"
+                    size="lg"
+
+                    className="pointer-events-none mb-6 rounded-full"
+                  >
+                    {icon}
                   </IconButton>
-                </a>
+          
               ))}
+            <div >
+              
             </div>
           </div>
           <div className="mx-auto mt-12 grid w-max grid-cols-2 gap-24 lg:mt-0">
@@ -50,7 +50,7 @@ export function Footer({ title, description, socials, menus, copyright }) {
                         target="_blank"
                         rel="noreferrer"
                         variant="small"
-                        className="mb-2 block font-normal text-blue-gray-500 hover:text-blue-gray-700"
+                        className="mb-2 block font-normal text-white hover:text-blue-gray-700"
                       >
                         {item.name}
                       </Typography>
@@ -84,31 +84,22 @@ Footer.defaultProps = {
     {
       color: "white",
       name: "facebook",
+      icon: FaFacebookF,
       path: "https://www.facebook.com/CreativeTim",
     },
-    {
-      color: "light-blue",
-      name: "twitter",
-      path: "https://www.twitter.com/creativetim",
-    },
+   
     {
       color: "purple",
       name: "instagram",
+      icon: FaInstagram,
       path: "https://www.instagram.com/creativetimofficial/",
     },
-    {
-      color: "pink",
-      name: "dribbble",
-      path: "https://www.dribbble.com/creativetim",
-    },
-    {
-      color: "red",
-      name: "youtube",
-      path: "https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w",
-    },
+    
+    
     {
       color: "black",
       name: "github",
+      icon: FaGithub,
       path: "https://github.com/creativetimofficial/material-tailwind",
     },
   ],
@@ -116,35 +107,30 @@ Footer.defaultProps = {
     {
       name: "mapa del sitio",
       items: [
-        { name: "About Us", path: "https://www.creative-tim.com/presentation" },
+        { name: "Nosotros", path: "https://www.creative-tim.com/presentation" },
+        { name: "Portal web", path: "https://www.creative-tim.com/presentation" },
         { name: "Blog", path: "https://www.creative-tim.com/blog" },
         {
           name: "Github",
           path: "https://www.github.com/creativetimofficial/material-tailwind?ref=mtk",
         },
         {
-          name: "Free Products",
+          name: "Nuestros clientes",
           path: "https://www.creative-tim.com/templates/free?ref=mtk",
         },
+        
       ],
     },
     {
-      name: "contactos",
+      name: "Soporte",
       items: [
+        
         {
-          name: "MIT License",
-          path: "https://github.com/creativetimofficial/material-tailwind/blob/main/LICENSE.md?ref=mtk",
-        },
-        {
-          name: "Contribute",
-          path: "https://github.com/creativetimofficial/material-tailwind/blob/main/CONTRIBUTING.md?ref=mtk",
-        },
-        {
-          name: "Change Log",
+          name: "Ayuda",
           path: "https://github.com/creativetimofficial/material-tailwind/blob/main/CHANGELOG.md?ref=mtk",
         },
         {
-          name: "Contact Us",
+          name: "Contactos",
           path: "https://creative-tim.com/contact-us?ref=mtk",
         },
       ],
@@ -152,13 +138,12 @@ Footer.defaultProps = {
   ],
   copyright: (
     <>
-      Copyright © {year} TicsCode Ecuador by{" "}
+      Copyright © {year} TicsCode Ecuador{" "}
       <a
-        href="https://www.creative-tim.com?ref=mtk"
+        href="https://www.ticscode.com"
         target="_blank"
         className="text-blue-gray-500 transition-colors hover:text-blue-500"
       >
-        EmperatorJA
       </a>
       .
     </>

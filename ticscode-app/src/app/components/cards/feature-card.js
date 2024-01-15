@@ -9,7 +9,7 @@ import {
   
   export function FeatureCard({ color, icon, title, description }) {
     return (
-      <Card className="rounded-2xl shadow-lg shadow-gray-500/10">
+      <Card className="rounded-2xl shadow-lg shadow-gray-500/10 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover: duration-300 ...">
         <CardBody className="px-8 text-center">
           <IconButton
             variant="gradient"

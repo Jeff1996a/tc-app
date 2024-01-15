@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   Navbar,
@@ -12,6 +13,7 @@ import {
   Card,
   IconButton,
   Collapse,
+  ListItem,
 } from "@material-tailwind/react";
 import {
   Square3Stack3DIcon,
@@ -27,14 +29,21 @@ import {
   CloudIcon,
   BriefcaseIcon,
   BuildingStorefrontIcon,
-} from "@heroicons/react/24/outline";
 
+} from "@heroicons/react/24/outline";
+import Link from "next/link";
 import {
+  ComputerDesktopIcon,
     UsersIcon, 
     ServerStackIcon,
     WindowIcon,
     GlobeAmericasIcon,
-    UserGroupIcon
+    UserGroupIcon,
+    DevicePhoneMobileIcon,
+    DeviceTabletIcon,
+    PhoneIcon,
+    BuildingOffice2Icon,
+    WrenchScrewdriverIcon
   } from "@heroicons/react/24/solid";
  
 // profile menu component
@@ -126,18 +135,27 @@ function ProfileMenu() {
 const ConsultoriaItems = [
   {
     title: "Diseño de sitios web",
+    icon:ComputerDesktopIcon,
+    color:"blue",
     description:
       "Diseñamos e implementamos su propio sitio web o tienda en linea responsive.",
+    url: "/consultoria"
   },
   {
     title: "Desarrollo de aplicaciones móviles",
+    icon:DeviceTabletIcon,
+    color:"blue",
     description:
       "Desarrollamos su propia plataforma digital para dispositivos Android o iOS",
+      url: "/consultoria"
   },
   {
     title: "Proyectos ERP",
+    icon:BuildingOffice2Icon,
+    color:"blue",
     description:
       "Brindamos servicios de consultoría para optimizar su entorno empresarial mediante soluciones SAP.",
+    url: "/consultoria"
   },
 ];
 
@@ -145,16 +163,22 @@ const ConsultoriaItems = [
 const ServiciosItems = [
     {
       title: "Hosting web",
+      icon:GlobeAmericasIcon,
+      url: "/",
       description:
         "Contamos con diferentes planes de alojamiento para su sitio web",
     },
     {
       title: "Mantenimiento de equipos informáticos",
+      icon:WrenchScrewdriverIcon,
+      url: "/",
       description:
         "Realizamos mantenimiento y reparación de todo tipo de equipos informáticos",
     },
     {
       title: "Soporte remoto",
+      url: "/",
+      icon:PhoneIcon,
       description:
         "Te ayudamos con asesoramiento remoto para solucionar cualquier problema tecnológico",
     },
@@ -162,61 +186,75 @@ const ServiciosItems = [
  
 function ConsultoriaList() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
  
-  const renderItems = ConsultoriaItems.map(({ title, description }) => (
-    <a href="#" key={title}>
-      <MenuItem>
-        <Typography variant="h6" color="blue-gray" className="mb-1">
-          {title}
-        </Typography>
-        <Typography variant="small" color="gray" className="font-normal">
-          {description}
-        </Typography>
-      </MenuItem>
-    </a>
-  ));
+  const renderItems = ConsultoriaItems.map(
+    ({title, description, url,icon}, key) => (
+      <Link href={url} key={key}>
+        <MenuItem className="flex items-center gap-2 rounded-lg">
+          <div className={`rounded-lg p-5 `}>
+            {React.createElement(icon, {
+              strokeWidth: 2,
+              className: "h-8 w-8 text-blue-500",
+            })}
+          </div>
+          <div>
+            <Typography
+              variant="h6"
+              color="blue-gray"
+              className="flex items-center text-sm"
+            >
+              {title}
+            </Typography>
+            <Typography variant="small" color="gray" className="font-normal">
+              {description}
+            </Typography>
+          </div>
+        </MenuItem>
+      </Link>
+    )
+  );
  
   return (
     <React.Fragment>
-      <Menu allowHover open={isMenuOpen} handler={setIsMenuOpen}>
+      <Menu
+        open={isMenuOpen}
+        handler={setIsMenuOpen}
+        offset={{ mainAxis: 20 }}
+        placement="bottom"
+        allowHover={true}
+      >
         <MenuHandler>
-          <Typography as="a" href="#" variant="solid" className="font-normal">
-            <MenuItem className="hidden items-center gap-2 text-blue-gray-500 lg:flex lg:rounded-full">
-            <Square3Stack3DIcon className="h-6 w-6"/>
- Consultoría {" "}
+          <Typography  as="a" href="#" variant="solid"  className="font-normal text-blue-gray-500">
+            <ListItem
+              className="flex items-center gap-2 py-2 pr-4"
+              selected={isMenuOpen || isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen((cur) => !cur)}
+            >
+              <Square3Stack3DIcon className="h-6 w-6" />
+              Consultoría
               <ChevronDownIcon
-                strokeWidth={2}
-                className={`h-3 w-3 transition-transform ${
+                strokeWidth={2.5}
+                className={`hidden h-3 w-3 transition-transform lg:block ${
                   isMenuOpen ? "rotate-180" : ""
                 }`}
               />
-            </MenuItem>
+              <ChevronDownIcon
+                strokeWidth={2.5}
+                className={`block h-3 w-3 transition-transform lg:hidden ${
+                  isMobileMenuOpen ? "rotate-180" : ""
+                }`}
+              />
+            </ListItem>
           </Typography>
         </MenuHandler>
-        <MenuList className="hidden w-[36rem] grid-cols-7 gap-3 overflow-visible lg:grid">
-          <Card
-            color="blue"
-            shadow={false}
-            variant="gradient"
-            className="col-span-3 grid h-full w-full place-items-center rounded-md"
-          >
-            <UserGroupIcon strokeWidth={1} className="h-28 w-28" />
-          </Card>
-          <ul className="col-span-4 flex w-full flex-col gap-1">
-            {renderItems}
-          </ul>
+        <MenuList className="hidden max-w-screen-xl rounded-xl lg:block">
+          <ul className="grid grid-cols-3 gap-y-2">{renderItems}</ul>
         </MenuList>
       </Menu>
-      <MenuItem className="flex items-center gap-2 text-blue-gray-500 lg:hidden">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-  <path d="M11.644 1.59a.75.75 0 01.712 0l9.75 5.25a.75.75 0 010 1.32l-9.75 5.25a.75.75 0 01-.712 0l-9.75-5.25a.75.75 0 010-1.32l9.75-5.25z" />
-  <path d="M3.265 10.602l7.668 4.129a2.25 2.25 0 002.134 0l7.668-4.13 1.37.739a.75.75 0 010 1.32l-9.75 5.25a.75.75 0 01-.71 0l-9.75-5.25a.75.75 0 010-1.32l1.37-.738z" />
-  <path d="M10.933 19.231l-7.668-4.13-1.37.739a.75.75 0 000 1.32l9.75 5.25c.221.12.489.12.71 0l9.75-5.25a.75.75 0 000-1.32l-1.37-.738-7.668 4.13a2.25 2.25 0 01-2.134-.001z" />
-</svg>Consultoría IT{" "}
-      </MenuItem>
-      <ul className="ml-6 flex w-full flex-col gap-1 lg:hidden">
-        {renderItems}
-      </ul>
+      <div className="block lg:hidden">
+        <Collapse open={isMobileMenuOpen}>{renderItems}</Collapse>
+      </div>
     </React.Fragment>
   );
 }
@@ -224,60 +262,76 @@ function ConsultoriaList() {
 function ServiciosList() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
    
-    const renderItems = ServiciosItems.map(({ title, description }) => (
-      <a href="#" key={title}>
-        <MenuItem>
-          <Typography variant="h6" color="blue-gray" className="mb-1">
-            {title}
-          </Typography>
-          <Typography variant="small" color="gray" className="font-normal">
-            {description}
-          </Typography>
-        </MenuItem>
-      </a>
-    ));
-   
-    return (
-      <React.Fragment>
-        <Menu allowHover open={isMenuOpen} handler={setIsMenuOpen}>
-          <MenuHandler>
-            <Typography as="a" href="#" variant="solid"  className="font-normal">
-              <MenuItem className="hidden items-center text-blue-gray-500  gap-2 lg:flex lg:rounded-full">
-              <CloudIcon className="h-7 w-7"/>
- Servicios{" "}
-                <ChevronDownIcon
-                  strokeWidth={2}
-                  className={`h-3 w-3 transition-transform ${
-                    isMenuOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </MenuItem>
-            </Typography>
-          </MenuHandler>
-          <MenuList className="hidden w-[36rem] grid-cols-7 gap-3 overflow-visible lg:grid">
-            <Card
-              color="green"
-              shadow={false}
-              variant="gradient"
-              className="col-span-3 grid h-full w-full place-items-center rounded-md"
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+ 
+  const renderItems = ServiciosItems.map(
+    ({title, description, url,icon}, key) => (
+      <Link href={url} key={key}>
+        <MenuItem className="flex items-center rounded-lg">
+          <div className={`rounded-lg p-5 `}>
+            {React.createElement(icon, {
+              className: "h-8 w-8 text-green-500",
+            })}
+          </div>
+          <div>
+            <Typography
+              variant="h6"
+              color="blue-gray"
+              className="flex items-center text-sm"
             >
-              <GlobeAmericasIcon strokeWidth={1} className="h-28 w-28" />
-            </Card>
-            <ul className="col-span-4 flex w-full flex-col gap-1">
-              {renderItems}
-            </ul>
-          </MenuList>
-        </Menu>
-        <MenuItem className="flex items-center gap-2 text-blue-gray-500 lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-  <path fillRule="evenodd" d="M4.5 9.75a6 6 0 0111.573-2.226 3.75 3.75 0 014.133 4.303A4.5 4.5 0 0118 20.25H6.75a5.25 5.25 0 01-2.23-10.004 6.072 6.072 0 01-.02-.496z" clipRule="evenodd" />
-</svg> Servicios{" "}
+              {title}
+            </Typography>
+            <Typography variant="small" color="gray" className="font-normal">
+              {description}
+            </Typography>
+          </div>
         </MenuItem>
-        <ul className="ml-6 flex w-full flex-col gap-1 lg:hidden">
-          {renderItems}
-        </ul>
-      </React.Fragment>
-    );
+      </Link>
+    )
+  );
+ 
+  return (
+    <React.Fragment>
+      <Menu
+        open={isMenuOpen}
+        handler={setIsMenuOpen}
+        offset={{ mainAxis: 20 }}
+        placement="bottom"
+        allowHover={true}
+      >
+        <MenuHandler>
+          <Typography  as="a" href="#" variant="solid"  className="font-normal text-blue-gray-500">
+            <ListItem
+              className="flex items-center gap-2 py-2 pr-3"
+              selected={isMenuOpen || isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen((cur) => !cur)}
+            >
+              <CloudIcon className="h-6 w-6" />
+              Servicios
+              <ChevronDownIcon
+                strokeWidth={2.5}
+                className={`hidden h-3 w-3 transition-transform lg:block ${
+                  isMenuOpen ? "rotate-180" : ""
+                }`}
+              />
+              <ChevronDownIcon
+                strokeWidth={2.5}
+                className={`block h-3 w-3 transition-transform lg:hidden ${
+                  isMobileMenuOpen ? "rotate-180" : ""
+                }`}
+              />
+            </ListItem>
+          </Typography>
+        </MenuHandler>
+        <MenuList className="hidden max-w-screen-xl rounded-xl lg:block">
+          <ul className="grid grid-cols-3 gap-y-2">{renderItems}</ul>
+        </MenuList>
+      </Menu>
+      <div className="block lg:hidden">
+        <Collapse open={isMobileMenuOpen}>{renderItems}</Collapse>
+      </div>
+    </React.Fragment>
+  );
   }
    
  
@@ -337,11 +391,11 @@ export function ComplexNavbar() {
   }, []);
  
   return (
-    <Navbar className="p-3">
+    <Navbar className="p-3 mx-auto">
       <div className="container mx-auto flex items-center justify-between text-blue-gray-500">
         <Typography
             as="a"
-            href="/"
+            href="/home"
             variant="h5"
             className="mr-4 ml-2 cursor-pointer py-1.5 font-medium"
             >
@@ -363,7 +417,7 @@ export function ComplexNavbar() {
               variant="outline"
               color="blue" 
               size="sm"
-              className="hidden lg:inline-block"
+              className="hidden lg:inline-block transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-green-500 duration-300 ..."
             >
               <span>Portal</span>
             </Button>

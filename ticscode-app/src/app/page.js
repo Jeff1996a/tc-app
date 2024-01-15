@@ -4,15 +4,19 @@ import { ComplexNavbar } from "./components/navbar";
 import routes from "./routes";
 import Link from "next/link";
 import { Home } from "./home/page";
+import { FloatingWhatsApp } from 'react-floating-whatsapp'
 
 export default function App() {
 
   return (
-    <ThemeProvider>
-       <div className="container absolute left-2/4 z-10 mx-auto -translate-x-2/4 p-4">
-            <ComplexNavbar></ComplexNavbar>
-       </div>
-       <Home></Home>
-    </ThemeProvider>
+    <>
+    <Home></Home>
+    <FloatingWhatsApp 
+        phoneNumber="5930979112697" 
+        accountName="TicsCode Ecuador" 
+        statusMessage="Soluciones tecnológicas"
+        chatMessage="¡Bienvenid@! ¿Cómo podemos ayudarte?"
+        placeholder="Escríbenos un mensaje"/>
+    </>
   )
 }
