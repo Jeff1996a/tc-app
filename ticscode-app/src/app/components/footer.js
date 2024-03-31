@@ -1,6 +1,6 @@
 import { Typography, IconButton } from "@material-tailwind/react";
 import {FaFacebookF, FaInstagram, FaGithub } from 'react-icons/fa';
-import Link from "next/link";
+
 const year = new Date().getFullYear();
 
 export function Footer({ title, description, socials, menus, copyright }) {
@@ -20,7 +20,7 @@ export function Footer({ title, description, socials, menus, copyright }) {
                   <IconButton
                     variant="gradient"
                     size="lg"
-
+                    key={name}       
                     className="pointer-events-none mb-6 rounded-full"
                   >
                     {icon}

@@ -11,6 +11,7 @@ import { Button } from "@material-tailwind/react";
   
   export const contactData = [
     {
+      idContact: 1,
       title: "Sitio web básico",
       icon: WindowIcon,
       color: "blue",
@@ -29,6 +30,7 @@ import { Button } from "@material-tailwind/react";
       )  
     },
     {
+      idContact: 2,
       title: "Sitio web corporativo",
       icon: ComputerDesktopIcon,
       color: "green",
@@ -49,6 +51,7 @@ import { Button } from "@material-tailwind/react";
       )
     },
     {
+      idContact: 3,
       title: "E-commerce",
       color: "red",
       icon: BuildingStorefrontIcon,

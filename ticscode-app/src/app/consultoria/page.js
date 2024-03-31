@@ -12,7 +12,7 @@ import {
     List,
     ListItem,
 } from "@material-tailwind/react";
-import { HandRaisedIcon, UsersIcon } from "@heroicons/react/24/solid";
+import { HandRaisedIcon } from "@heroicons/react/24/solid";
 import { PageTitle} from "../components/page-tittle";
 import { Footer } from "../components/footer";
 import { FeatureCard} from "../components/cards/feature-card";
@@ -20,9 +20,10 @@ import { TeamCard } from "../components/cards/team-card";
 import { featuresData } from "../data/feactures-data";
 import { teamData } from "../data/team-data";
 import { contactData } from "../data/contact-data";
-import { FloatingWhatsApp } from 'react-floating-whatsapp'
+import { FloatingWhatsApp } from 'react-floating-whatsapp';
+import Image from   "next/image";
 
-export function Home(){
+export default function Consultoria(){
     return(
         <>
             <div className="relative w-full flex h-screen content-center items-center justify-center pt-16 pb-32">
@@ -34,6 +35,8 @@ export function Home(){
                         <Image
                             className="h-70 w-81 mt-6 mb-0 mx-auto object-cover object-center opacity-70"
                             src="/img/logo.png"
+                            width={500}
+                            height={500}
                             alt="nature image"/>
                         <Typography variant="lead" color="white" className="opacity-70 mt-0">
                             Especializados en crear las mejores soluciones IT para tu negocio mediante el diseño de cableado estructurado de datos, desarrollo de aplicaciones y soporte remoto.
@@ -69,6 +72,8 @@ export function Home(){
                         <Image
                             alt="Card Image"
                             src="/img/teamwork.jpeg"
+                            width={500}
+                            height={500}
                             className="h-full w-full"
                         />
                         </CardHeader>
@@ -102,7 +107,7 @@ export function Home(){
                        
                 </PageTitle>
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    {featuresData.map(({ color, title, icon, description }) => (
+                    {featuresData.map(({color, title, icon, description }) => (
                     <FeatureCard
                         key={title}
                         color={color}
@@ -183,7 +188,7 @@ export function Home(){
                             
                             <List className="text-center mt-5">
                                 {description.map((name) => (
-                                <ListItem >{name}</ListItem>
+                                <ListItem key={name}>{name}</ListItem>
                                 ))}
                             </List>
                             {button}
@@ -221,4 +226,3 @@ export function Home(){
     )
 }
 
-export default Home;
