@@ -15,7 +15,7 @@ import { Button } from "@material-tailwind/react";
       title: "Sitio web básico",
       icon: WindowIcon,
       color: "blue",
-      price: "90 $",
+      price: "- $",
       description: ["Diseño responsive adaptable a cualquier pantalla",
       "Página de Inicio o bienvenida", 
       "Página informativa acerca de sus servicios o proyectos",
@@ -34,7 +34,7 @@ import { Button } from "@material-tailwind/react";
       title: "Sitio web corporativo",
       icon: ComputerDesktopIcon,
       color: "green",
-      price: "280 $",
+      price: "- $",
       description: [
         "Diseño responsive adaptable a cualquier pantalla",
         "Página de Inicio o bienvenida", 
@@ -55,7 +55,7 @@ import { Button } from "@material-tailwind/react";
       title: "E-commerce",
       color: "red",
       icon: BuildingStorefrontIcon,
-      price: "420 $",
+      price: "- $",
       description: [
         "Diseño responsive adaptable a cualquier pantalla",
         "Página de Inicio o bienvenida", 
